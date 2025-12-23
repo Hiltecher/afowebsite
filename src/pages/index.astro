@@ -1,16 +1,47 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import RaceHero from '../components/RaceHero.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="AFO Racing League | Sim Racing Community">
+	<main class="max-w-7xl mx-auto px-4 py-12">
+		
+		<header class="flex justify-between items-end mb-12 border-b border-zinc-800 pb-4">
+			<div>
+				<h1 class="text-2xl font-black italic text-red-600 uppercase tracking-tighter">AFO League</h1>
+			</div>
+			<nav class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-widest text-zinc-400">
+				<a href="/" class="text-white">Home</a>
+				<a href="/standings" class="hover:text-white">Standings</a>
+				<a href="/rules" class="hover:text-white">Rules</a>
+			</nav>
+		</header>
+
+		<RaceHero />
+
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+			
+			<div class="lg:col-span-2 space-y-8">
+				<div class="bg-zinc-900 aspect-video rounded-xl border border-zinc-800 flex items-center justify-center relative overflow-hidden">
+					<p class="text-zinc-600 font-mono">Latest Stream Embed (Coming Soon)</p>
+				</div>
+			</div>
+
+			<div class="space-y-6">
+				<div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+					<h3 class="font-black italic uppercase text-sm mb-4 border-b border-zinc-800 pb-2">Quick Standings</h3>
+					<ul class="space-y-3 font-mono text-sm">
+						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
+							<span>1. M. Verstappen</span> <span class="text-red-500 font-bold">125</span>
+						</li>
+						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
+							<span>2. L. Norris</span> <span class="text-red-500 font-bold">112</span>
+						</li>
+					</ul>
+					<a href="/standings" class="block text-center mt-4 text-[10px] text-zinc-500 hover:text-white uppercase font-bold tracking-widest">Full Standings →</a>
+				</div>
+			</div>
+
+		</div>
+	</main>
+</Layout>

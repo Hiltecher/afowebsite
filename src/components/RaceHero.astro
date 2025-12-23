@@ -1,0 +1,35 @@
+---
+const raceData = {
+  track: "Spa-Francorchamps",
+  country: "Belgium",
+  date: "July 24, 2025",
+  time: "20:00 GMT",
+  status: "Next Event"
+};
+---
+<section class="relative overflow-hidden bg-zinc-900 border-l-8 border-red-600 rounded-br-3xl p-8 mb-12 group transition-all hover:border-white">
+  <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center">
+    <div>
+      <span class="inline-block bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded mb-2 uppercase tracking-tighter">
+        {raceData.status}
+      </span>
+      <h2 class="text-4xl md:text-6xl font-black italic uppercase italic leading-none mb-2">
+        {raceData.track}
+      </h2>
+      <p class="text-zinc-400 font-mono text-sm tracking-widest uppercase">
+        {raceData.country} • {raceData.date} • {raceData.time}
+      </p>
+    </div>
+    
+    <div class="mt-6 md:mt-0 flex flex-col items-end">
+       <button class="bg-white text-black font-black italic px-8 py-3 rounded-tl-xl hover:bg-red-600 hover:text-white transition-colors uppercase tracking-tight">
+         Join the Grid
+       </button>
+       <p class="text-[10px] text-zinc-500 mt-2 font-mono">Server Password in Discord</p>
+    </div>
+  </div>
+
+  <div class="absolute -right-10 -bottom-10 text-9xl font-black italic text-white/5 pointer-events-none uppercase">
+    {raceData.track.split('-')[0]}
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="bg-zinc-950 text-zinc-100">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body class="selection:bg-red-600 selection:text-white">
+		<slot /> </body>
+</html>
+
+<style is:global>
+	@font-face {
+		font-family: 'F1-Wide';
+		src: url('https://www.formula1.com/etc/designs/f1-static/fonts/F1/Formula1-Wide.woff2') format('woff2');
+		font-weight: 900;
+	}
+	h1, h2, .racing-font { font-family: 'F1-Wide', sans-serif; }
+</style>
