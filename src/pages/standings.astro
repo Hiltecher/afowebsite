@@ -28,11 +28,15 @@ try {
   const teamRes = await fetch(TEAM_SHEET_URL);
   const teamCsv = await teamRes.text();
   const teamRows = teamCsv.split('\n').slice(1);
+  
+  // Note: We'll grab the first driver's color for that team to use in the dash
   teams = teamRows.map(row => {
     const [name, points] = row.split(',');
+    const teamColor = drivers.find(d => d.team === name?.trim())?.color || "#333";
     return {
       name: name?.trim(),
-      points: parseInt(points) || 0
+      points: parseInt(points) || 0,
+      color: teamColor
     };
   }).filter(t => t.name).sort((a, b) => b.points - a.points);
 
@@ -42,8 +46,8 @@ try {
 ---
 
 <Layout title="AFO Season 3 | Standings">
-  <main class="max-w-7xl mx-auto px-4 py-12">
-    <h1 class="text-5xl font-black italic uppercase mb-12">SEASON 3 STANDINGS</h1>
+  <main class="max-width-7xl mx-auto px-4 py-12">
+    <h1 class="text-5xl font-black italic uppercase mb-12">Championship Standings</h1>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       {drivers.slice(0, 3).map((driver) => (
@@ -56,7 +60,6 @@ try {
       ))}
     </div>
 
-    <h2 class="text-3xl font-black italic uppercase mb-8 text-red-600">Drivers Championship</h2>
     <div class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 mb-20">
       <table class="w-full text-left">
         <thead class="bg-zinc-800 text-zinc-400 text-[10px] uppercase tracking-widest font-bold">
@@ -71,17 +74,20 @@ try {
           {drivers.map((driver) => (
             <tr class="hover:bg-zinc-800/50 transition-colors">
               <td class="px-6 py-4 font-black italic text-center w-20">{driver.pos}</td>
-              <td class="px-6 py-4 font-bold text-white">{driver.name}</td>
+              <td class="px-6 py-4 font-bold text-white flex items-center gap-3">
+                <div class="w-1 h-4 rounded-full" style={`background-color: ${driver.color}`}></div>
+                {driver.name}
+              </td>
               <td class="px-6 py-4 text-zinc-400 text-sm text-center">{driver.team}</td>
               <td class="px-6 py-4 text-center font-mono font-bold text-red-500">{driver.points}</td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div><br>
+    </div>
 
     <section>
-      <h2 class="text-3xl font-black italic uppercase mb-8 text-red-600">Constructors Championship</h2>
+      <h2 class="text-3xl font-black italic uppercase mb-8 text-red-600">Constructors' Championship</h2>
       <div class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 max-w-2xl">
         <table class="w-full text-left">
           <thead class="bg-zinc-800 text-zinc-400 text-[10px] uppercase tracking-widest font-bold">
@@ -95,8 +101,11 @@ try {
             {teams.map((team, index) => (
               <tr class="hover:bg-zinc-800/50 transition-colors">
                 <td class="px-6 py-4 font-black italic text-center">{index + 1}</td>
-                <td class="px-6 py-4 font-bold text-white">{team.name}</td>
-                <td class="px-6 py-4 text-center font-mono font-bold text-red-500">{team.points}</td>
+                <td class="px-6 py-4 font-bold text-white flex items-center gap-3">
+                  <div class="w-1 h-4 rounded-full" style={`background-color: ${team.color}`}></div>
+                  {team.name}
+                </td>
+                <td class="px-6 py-4 text-right font-mono font-bold text-red-500">{team.points}</td>
               </tr>
             ))}
           </tbody>
