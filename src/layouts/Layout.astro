@@ -3,33 +3,14 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-
-// FIX: Added a fallback check to prevent the "Invalid URL" error during local dev
-const siteUrl = Astro.site ? Astro.site.href : 'https://afowebsite.vercel.app/';
-const canonicalURL = new URL(Astro.url.pathname, siteUrl);
-const socialImageURL = new URL('/splash.png', siteUrl);
 ---
 <!doctype html>
 <html lang="en">
-    <head>   
+    <head>
         <meta charset="UTF-8" /> 
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        
-        <title>Assetto Formula Open | AFO Racing League</title>
-        <meta name="title" content="Assetto Formula Open | AFO Racing League" />
-        <meta name="description" content="Official home of the AFO Racing League. Join the grid for Season 3." />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalURL} />
-        <meta property="og:title" content="Assetto Formula Open" />
-        <meta property="og:description" content="Join the premier Formula Open league. High speed, high competition." />
-        <meta property="og:image" content={socialImageURL} />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalURL} />
-        <meta property="twitter:title" content="Assetto Formula Open" />
-        <meta property="twitter:image" content={socialImageURL} />
+        <title>Assetto Formula Open</title>
     </head>
     <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col">
         <Header />
