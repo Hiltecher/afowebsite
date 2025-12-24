@@ -1,0 +1,19 @@
+import pandas as pd
+
+# Define the data for the standings spreadsheet
+data = {
+    'pos': [1, 2, 3],
+    'name': ['M. Verstappen', 'L. Norris', 'C. Leclerc'],
+    'team': ['Red Bull', 'McLaren', 'Ferrari'],
+    'points': [125, 112, 108],
+    'color': ['#1E41FF', '#FF8700', '#E80020']
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Write to CSV
+file_name = 'afo_league_standings.csv'
+df.to_csv(file_name, index=False)
+
+print(f"File saved as {file_name}")

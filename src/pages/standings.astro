@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 1. Replace this with the CSV link you copied from Google Sheets
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSh50gnUfvtjcDOLOgbQ3LguFAfFHiKzQTK2SIbZ3WEVIhhn_pd7PgNVmx50aS6nnDQpPtpX3QicJuT/pub?gid=0&single=true&output=csv";
+
+let drivers = [];
+
+try {
+  const response = await fetch(SHEET_URL);
+  const csvData = await response.text();
+  
+  // 2. Parse the CSV data into an array of objects
+  const rows = csvData.split('\n').slice(1); // Skip the header row
+  drivers = rows.map(row => {
+    const [pos, name, team, points, color] = row.split(',');
+    return {
+      pos: parseInt(pos),
+      name: name?.trim(),
+      team: team?.trim(),
+      points: parseInt(points),
+      color: color?.trim()
+    };
+  }).filter(d => !isNaN(d.pos)); // Clean up any empty rows
+} catch (error) {
+  console.error("Error fetching standings:", error);
+}
+---
+
+<Layout title="AFO Season 3 | Standings">
+  <main class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-5xl font-black italic uppercase mb-12">Championship Standings</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      {drivers.slice(0, 3).map((driver) => (
+        <div class="bg-zinc-900 p-6 rounded-xl border-b-4 flex flex-col items-center text-center" style={`border-color: ${driver.color}`}>
+          <span class="text-4xl font-black italic text-zinc-800">0{driver.pos}</span>
+          <h2 class="text-2xl font-bold mt-2">{driver.name}</h2>
+          <p class="text-zinc-500 text-xs uppercase font-bold tracking-widest">{driver.team}</p>
+          <p class="text-3xl font-black text-red-600 mt-4">{driver.points} PTS</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800">
+        <table class="w-full text-left">
+          <thead class="bg-zinc-800 text-zinc-400 text-[10px] uppercase tracking-widest font-bold">
+            <tr>
+              <th class="px-6 py-4 text-center">Pos</th>
+              <th class="px-6 py-4">Driver</th>
+              <th class="px-6 py-4 text-center">Team</th>
+              <th class="px-6 py-4 text-center">Points</th> 
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-800">
+            {drivers.map((driver) => (
+              <tr class="hover:bg-zinc-800/50 transition-colors">
+                <td class="px-6 py-4 font-black italic text-center w-20">{driver.pos}</td>
+                <td class="px-6 py-4 font-bold text-white">{driver.name}</td>
+                <td class="px-6 py-4 text-zinc-400 text-sm text-center">{driver.team}</td>
+                <td class="px-6 py-4 text-center font-mono font-bold text-red-500">{driver.points}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+  </main>
+</Layout>
