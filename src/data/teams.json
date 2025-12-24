@@ -1,0 +1,134 @@
+[
+    {
+      "id": "stellar-racing-tech",
+      "name": "STELLAR Racing Tech",
+      "color": "#595959",
+      "logo": "/SRTTILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "SRT won the most trophies in Season 2, taking home the Constructors, 4 wins and 8 podiums. But with a brand new lineup and manager, can they repeat the same levels of success in Season 3?"
+    },
+    {
+      "id": "sonny-gp",
+      "name": "Sonny GP",
+      "color": "#e30000",
+      "logo": "/SONNYTILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "Sonny GP is a competitor in AFO Season 3."
+    },
+    {
+      "id": "kv-group",
+      "name": "KV Group",
+      "color": "#ffea00",
+      "logo": "/KVTILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "KV Group is a competitor in AFO Season 3."
+    },
+    {
+      "id": "blue-ridge-racing",
+      "name": "Blue Ridge Racing",
+      "color": "#0054ba",
+      "logo": "/BLUERIDGETILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "Blue Ridge Racing is a competitor in AFO Season 3."
+    },
+    {
+      "id": "tygersport",
+      "name": "Tygersport",
+      "color": "#5100ff",
+      "logo": "/TYGERTILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "Tygersport is a competitor in AFO Season 3."
+    },
+    {
+      "id": "skyclan-sim-esports",
+      "name": "SKYCLAN Sim eSports",
+      "color": "#00fff2",
+      "logo": "/SKYTILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "SKYCLAN Sim eSports is a competitor in AFO Season 3."
+    },
+    {
+      "id": "kuiper-darkstar-racing",
+      "name": "Kuiper Darkstar Racing",
+      "color": "#c9c9c9",
+      "logo": "/DARKTILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "Kuiper Darkstar Racing is a competitor in AFO Season 3."
+    },
+    {
+      "id": "techteam-chp",
+      "name": "Techteam CHP",
+      "color": "#00c8ff",
+      "logo": "/CHPTILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "Techteam CHP is a competitor in AFO Season 3."
+    },
+    {
+      "id": "vega-sport-gp",
+      "name": "Vega Sport GP",
+      "color": "#009e28",
+      "logo": "/VEGATILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "Vega Sport GP is a competitor in AFO Season 3."
+    },
+    {
+      "id": "fox-esports",
+      "name": "Fox eSports",
+      "color": "#ff6a00",
+      "logo": "/FOXTILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "Fox eSports is a competitor in AFO Season 3."
+    },
+    {
+      "id": "out-for-blood",
+      "name": "Out For Blood",
+      "color": "#5c0000",
+      "logo": "/OFBTILE.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0
+      },
+      "bio": "Out For Blood is a competitor in AFO Season 3."
+    }
+  ]

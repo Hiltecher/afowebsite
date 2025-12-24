@@ -1,0 +1,359 @@
+[
+    {
+      "id": "angel-arevalo",
+      "name": "Angel Arevalo",
+      "number": "8",
+      "team": "STELLAR Racing Tech",
+      "country": "USA",
+      "flag": "🇺🇸",
+      "image": "/numbers/8.png",
+      "car": "/ANGELCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 0
+      },
+      "bio": "Angel Arevalo competes for STELLAR Racing Tech in AFO Season 3."
+    },
+    {
+      "id": "cash-aiello",
+      "name": "Cash Aiello",
+      "number": "65",
+      "team": "STELLAR Racing Tech",
+      "country": "USA",
+      "flag": "🇺🇸",
+      "image": "/numbers/65.png",
+      "car": "/CASHCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 0
+      },
+      "bio": "Cash Aiello competes for STELLAR Racing Tech in AFO Season 3."
+    },
+    {
+      "id": "jaap-wagenvoort",
+      "name": "Jaap Wagenvoort",
+      "number": "1",
+      "team": "Sonny GP",
+      "country": "Netherlands",
+      "flag": "🇳🇱",
+      "image": "/numbers/1.png",
+      "car": "/JAAPCAR.jpg",
+      "stats": {
+        "titles": 1,
+        "wins": 3,
+        "podiums": 5,
+        "starts": 7
+      },
+      "bio": "Jaap Wagenvoort competes for Sonny GP in AFO Season 3."
+    },
+    {
+      "id": "karim-yacoub",
+      "name": "Karim Yacoub",
+      "number": "57",
+      "team": "Sonny GP",
+      "country": "Egypt",
+      "flag": "🇪🇬",
+      "image": "/numbers/57.png",
+      "car": "/KARIMCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 0
+      },
+      "bio": "Karim Yacoub competes for Sonny GP in AFO Season 3."
+    },
+    {
+      "id": "petar-prentic",
+      "name": "Petar Prentic",
+      "number": "14",
+      "team": "KV Group",
+      "country": "Montenegro",
+      "flag": "🇲🇪",
+      "image": "/numbers/14.png",
+      "car": "/PETARCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 3,
+        "starts": 8
+      },
+      "bio": "Petar Prentic competes for KV Group in AFO Season 3."
+    },
+    {
+      "id": "ryan-hawk",
+      "name": "Ryan Hawk",
+      "number": "90",
+      "team": "KV Group",
+      "country": "Saudi Arabia",
+      "flag": "🇸🇦",
+      "image": "/numbers/90.png",
+      "car": "/RYANCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 2,
+        "starts": 9
+      },
+      "bio": "Ryan Hawk competes for KV Group in AFO Season 3."
+    },
+    {
+      "id": "evan-pardy",
+      "name": "Evan Pardy",
+      "number": "64",
+      "team": "Blue Ridge Racing",
+      "country": "USA",
+      "flag": "🇺🇸",
+      "image": "/numbers/64.png",
+      "car": "/EVANCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 4
+      },
+      "bio": "Evan Pardy competes for Blue Ridge Racing in AFO Season 3."
+    },
+    {
+      "id": "jorge-caro",
+      "name": "Jorge Caro",
+      "number": "12",
+      "team": "Blue Ridge Racing",
+      "country": "Spain",
+      "flag": "🇪🇸",
+      "image": "/numbers/12.png",
+      "car": "/JORGECAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 1,
+        "podiums": 1,
+        "starts": 3
+      },
+      "bio": "Jorge Caro competes for Blue Ridge Racing in AFO Season 3."
+    },
+    {
+      "id": "hritesh-lama",
+      "name": "Hritesh Lama",
+      "number": "69",
+      "team": "Tygersport",
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "image": "/numbers/69.png",
+      "car": "/HRITESHCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 1,
+        "starts": 7
+      },
+      "bio": "Hritesh Lama competes for Tygersport in AFO Season 3."
+    },
+    {
+      "id": "mackenzie-thompson",
+      "name": "Mackenzie Thompson",
+      "number": "13",
+      "team": "Tygersport",
+      "country": "USA",
+      "flag": "🇺🇸",
+      "image": "/numbers/13.png",
+      "car": "/MACKENZIECAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 1,
+        "starts": 3
+      },
+      "bio": "Mackenzie Thompson competes for Tygersport in AFO Season 3."
+    },
+    {
+      "id": "frederick-nicholls",
+      "name": "Frederick Nichols",
+      "number": "15",
+      "team": "SKYCLAN Sim eSports",
+      "country": "United Kingdom",
+      "flag": "🇬🇧",
+      "image": "/numbers/15.png",
+      "car": "/FREDCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 7
+      },
+      "bio": "Frederick Nichols competes for SKYCLAN Sim eSports in AFO Season 3."
+    },
+    {
+      "id": "daniele-tallarino",
+      "name": "Daniele Tallarino",
+      "number": "25",
+      "team": "SKYCLAN Sim eSports",
+      "country": "Italy",
+      "flag": "🇮🇹",
+      "image": "/numbers/25.png",
+      "car": "/DANIELLECAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 2
+      },
+      "bio": "Daniele Tallarino competes for SKYCLAN Sim eSports in AFO Season 3."
+    },
+    {
+      "id": "joshi-mandelbaum",
+      "name": "Joshi Mandelbaum",
+      "number": "47",
+      "team": "Kuiper Darkstar Racing",
+      "country": "Germany",
+      "flag": "🇩🇪",
+      "image": "/numbers/47.png",
+      "car": "/JOSHICAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 0
+      },
+      "bio": "Joshi Mandelbaum competes for Kuiper Darkstar Racing in AFO Season 3."
+    },
+    {
+      "id": "simon-pavlik",
+      "name": "Simon Pavlik",
+      "number": "93",
+      "team": "Kuiper Darkstar Racing",
+      "country": "Slovakia",
+      "flag": "🇸🇰",
+      "image": "/numbers/93.png",
+      "car": "/SIMONPCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 0
+      },
+      "bio": "Simon Pavlik competes for Kuiper Darkstar Racing in AFO Season 3."
+    },
+    {
+      "id": "willy-rainbow",
+      "name": "Willy Rainbow",
+      "number": "92",
+      "team": "Techteam CHP",
+      "country": "USA",
+      "flag": "🇺🇸",
+      "image": "/numbers/92.png",
+      "car": "/WILLYCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 4
+      },
+      "bio": "Willy Rainbow competes for Techteam CHP in AFO Season 3."
+    },
+    {
+      "id": "murat-goodman",
+      "name": "Murat Goodman",
+      "number": "44",
+      "team": "Techteam CHP",
+      "country": "Turkey",
+      "flag": "🇹🇷",
+      "image": "/numbers/44.png",
+      "car": "/MURATCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 0
+      },
+      "bio": "Murat Goodman competes for Techteam CHP in AFO Season 3."
+    },
+    {
+      "id": "eliot-vega",
+      "name": "Eliot Vega",
+      "number": "29",
+      "team": "Vega Sport GP",
+      "country": "USA",
+      "flag": "🇺🇸",
+      "image": "/numbers/29.png",
+      "car": "/splash.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 0
+      },
+      "bio": "Eliot Vega competes for Vega Sport GP in AFO Season 3."
+    },
+    {
+      "id": "simon-wagenvoort",
+      "name": "Simon Wagenvoort",
+      "number": "10",
+      "team": "Vega Sport GP",
+      "country": "Netherlands",
+      "flag": "🇳🇱",
+      "image": "/numbers/10.png",
+      "car": "/splash.png",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 0
+      },
+      "bio": "Simon Wagenvoort competes for Vega Sport GP in AFO Season 3."
+    },
+    {
+      "id": "james-knox",
+      "name": "James Knox",
+      "number": "75",
+      "team": "Fox eSports",
+      "country": "England",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "image": "/numbers/75.png",
+      "car": "/JAMESCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 1,
+        "starts": 2
+      },
+      "bio": "James Knox (born 14 December 2006 in Brighton, England) is a British eSports racing driver competing in AFO. He drives for his own team, FOX eSports, and is set to contest the full championship in Season 3. \n\n Knox previously made an impact ahead of Season 2 by winning the two unofficial test races, demonstrating strong pace and racecraft, but was unable to participate in the season itself due to commitments in other leagues. Returning for Season 3, Knox aims to establish himself as a regular front running competitor in AFO while leading FOX eSports through its campaign."
+    },
+    {
+      "id": "dan-thyn",
+      "name": "Dan Thyn",
+      "number": "38",
+      "team": "Fox eSports",
+      "country": "Czech Republic",
+      "flag": "🇨🇿",
+      "image": "/numbers/38.png",
+      "car": "/DANCAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 0,
+        "podiums": 0,
+        "starts": 0
+      },
+      "bio": "Dan Thyn competes for Fox eSports in AFO Season 3."
+    },
+    {
+      "id": "auge-rimkunas",
+      "name": "Auge Rimkunas",
+      "number": "44",
+      "team": "Out For Blood",
+      "country": "Lithuania",
+      "flag": "🇱🇹",
+      "image": "/numbers/44.png",
+      "car": "/AUGECAR.jpg",
+      "stats": {
+        "titles": 0,
+        "wins": 4,
+        "podiums": 5,
+        "starts": 8
+      },
+      "bio": "Auge Rimkunas competes for Out For Blood in AFO Season 3."
+    }
+  ]
