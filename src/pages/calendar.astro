@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import calendarData from '../data/calendar.json';
+
+const formatDate = (dateString) => {
+  // Add a check to handle "TBD" gracefully
+  if (dateString === "TBD") return "Date TBD";
+  
+  return new Date(dateString).toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  });
+};
+---
+
+<Layout title="AFO Season 3 Calendar">
+  <main class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-5xl font-black italic uppercase mb-12 text-white text-center">Season 3 Calendar</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {calendarData.map((race) => (
+        /* EVERYTHING related to a single race must be inside this block */
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-red-600 transition-all group">
+          <div class="flex justify-between items-start mb-6">
+            <span class="text-red-600 font-black italic uppercase text-sm tracking-widest">Round {race.round}</span>
+            <span class="text-4xl">{race.flag}</span>
+          </div>
+          
+          <h2 class="text-3xl font-black italic uppercase text-white mb-2 leading-tight">
+            {race.track}
+          </h2>
+          
+          <p class="text-zinc-400 font-mono text-sm mt-4 pt-4 border-t border-zinc-800">
+            {formatDate(race.date)}
+          </p>
+        </div>
+      ))}
+    </div>
+  </main>
+</Layout>
