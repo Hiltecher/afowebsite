@@ -1,46 +1,56 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import RaceHero from '../components/RaceHero.astro';
+import QuickStandings from '../components/QuickStandings.astro';
+
+// Replace this with your actual YouTube video ID or Twitch channel
+const streamId = "0UeNyW5Pt-w"; 
 ---
 
-<Layout title="AFO | Official Website">
-	<main class="max-w-7xl mx-auto px-4 py-12">
-		
-		<RaceHero />
+<Layout title="AFO Racing League">
+  <main class="max-w-7xl mx-auto px-4 py-12">
+    <RaceHero />
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-12">
+      
+      <div class="lg:col-span-2 space-y-12">
+        
+        <section>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-2 h-2 bg-red-600 rounded-full animate-ping"></div>
+            <h2 class="text-2xl font-black italic uppercase text-white">Live Stream</h2>
+          </div>
+          
+          <div class="aspect-video w-full rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src={`https://www.youtube.com/embed/${streamId}`} 
+              title="AFO Racing Stream" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
 
-		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-			
-			<div class="lg:col-span-2 space-y-8">
-				<div class="bg-zinc-900 aspect-video rounded-xl border border-zinc-800 flex items-center justify-center relative overflow-hidden">
-					<p class="text-zinc-600 font-mono">Latest Stream Embed (Coming Soon)</p>
-				</div>
-			</div>
+        <section>
+          <h2 class="text-2xl font-black italic uppercase mb-8 text-white">Latest News</h2>
+          <div class="space-y-6">
+            <div class="bg-zinc-900 p-6 rounded-3xl border border-zinc-800 hover:border-zinc-700 transition-colors">
+              <p class="text-zinc-500 text-xs font-bold uppercase mb-2">Dec 24, 2025</p>
+              <h3 class="text-xl font-bold text-white mb-2">Melbourne GP: Technical Briefing</h3>
+              <p class="text-zinc-400 text-sm mb-4">Everything you need to know about fuel strategy and tire wear for the upcoming round at Albert Park.</p>
+              <a href="/news" class="text-red-600 font-bold uppercase text-xs hover:text-white transition-colors">Read More →</a>
+            </div>
+          </div>
+        </section>
+      </div>
 
-			<div class="space-y-6">
-				<div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
-					<h3 class="font-black italic uppercase text-sm mb-4 border-b border-zinc-800 pb-2">Quick Standings</h3>
-					<ul class="space-y-3 font-mono text-sm">
-						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
-							<span>1. J. Wagenvoort</span> <span class="text-red-500 font-bold">96</span>
-						</li>
-						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
-							<span>2. A. Rimkunas</span> <span class="text-red-500 font-bold">87</span>
-						</li>
-						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
-							<span>3. P. Prentic</span> <span class="text-red-500 font-bold">69</span>
-						</li>
-						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
-							<span>4. R. Hawk</span> <span class="text-red-500 font-bold">59</span>
-						</li>
-						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
-							<span>5. N. Sparks</span> <span class="text-red-500 font-bold">57</span>
-						</li>
-					</ul>
-					<a href="/standings" class="block text-center mt-4 text-[10px] text-zinc-500 hover:text-white uppercase font-bold tracking-widest">Full Standings →</a>
-				</div>
-			</div>
+      <aside>
+        <QuickStandings />
+      </aside>
 
-		</div>
-	</main>
+    </div>
+  </main>
 </Layout>

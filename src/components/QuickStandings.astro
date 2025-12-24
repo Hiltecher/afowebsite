@@ -1,0 +1,59 @@
+---
+// Replace with your Google Sheets CSV link
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSh50gnUfvtjcDOLOgbQ3LguFAfFHiKzQTK2SIbZ3WEVIhhn_pd7PgNVmx50aS6nnDQpPtpX3QicJuT/pub?gid=1975854121&single=true&output=csv";
+
+let topDrivers = [];
+
+try {
+  const response = await fetch(SHEET_URL);
+  const csvData = await response.text();
+  const rows = csvData.split('\n').slice(1);
+  
+  topDrivers = rows.map(row => {
+    const [pos, name, team, points, color] = row.split(',');
+    return {
+      pos: parseInt(pos),
+      name: name?.trim(),
+      team: team?.trim(),
+      points: parseInt(points) || 0,
+      color: color?.trim() || "#333"
+    };
+  })
+  .filter(d => d.name)
+  .sort((a, b) => b.points - a.points)
+  .slice(0, 5); // Only take the top 5 for the homepage
+
+} catch (error) {
+  console.error("Quick Standings Fetch Error:", error);
+}
+---
+
+<div class="bg-zinc-900 rounded-3xl p-8 border border-zinc-800">
+  <div class="flex justify-between items-center mb-8">
+    <h2 class="text-2xl font-black italic uppercase text-white">Championship</h2>
+    <a href="/standings" class="text-xs font-bold uppercase tracking-widest text-red-600 hover:text-white transition-colors">Full Table →</a>
+  </div>
+
+  <div class="space-y-4">
+    {topDrivers.map((driver) => (
+      <div class="flex items-center justify-between p-4 bg-zinc-950/50 rounded-xl border border-zinc-800/50 relative overflow-hidden group">
+        <div class="absolute left-0 top-0 bottom-0 w-1" style={`background-color: ${driver.color}`}></div>
+        
+        <div class="flex items-center gap-4">
+          <span class="text-lg font-black italic text-zinc-700 w-6">
+            {driver.pos}
+          </span>
+          <div>
+            <p class="font-bold text-white leading-none mb-1">{driver.name}</p>
+            <p class="text-[10px] text-zinc-500 uppercase font-bold tracking-tighter">{driver.team}</p>
+          </div>
+        </div>
+        
+        <div class="text-right">
+          <p class="text-xl font-black text-white italic">{driver.points}</p>
+          <p class="text-[8px] text-zinc-600 uppercase font-black">Points</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

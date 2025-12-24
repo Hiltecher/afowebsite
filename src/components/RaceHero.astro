@@ -1,35 +1,95 @@
 ---
-const raceData = {
+// Define the next race details
+const nextRace = {
   track: "Albert Park",
-  country: "Australia",
-  date: "January 10, 2026",
-  time: "18:00 GMT",
-  status: "Next Event"
+  location: "Melbourne, Australia",
+  date: "2025-12-28T18:00:00Z", 
+  startTime: "18:00 GMT",
+  length: "5.278 km",
+  image: "/images/albert-park.jpg" 
 };
 ---
-<section class="relative overflow-hidden bg-zinc-900 border-l-8 border-red-600 rounded-br-3xl p-8 mb-12 group transition-all hover:border-white">
-  <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center">
-    <div>
-      <span class="inline-block bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded mb-2 uppercase tracking-tighter">
-        {raceData.status}
-      </span>
-      <h2 class="text-4xl md:text-6xl font-black italic uppercase italic leading-none mb-2">
-        {raceData.track}
-      </h2>
-      <p class="text-zinc-400 font-mono text-sm tracking-widest uppercase">
-        {raceData.country} • {raceData.date} • {raceData.time}
-      </p>
-    </div>
-    
-    <div class="mt-6 md:mt-0 flex flex-col items-end">
-       <button class="bg-white text-black font-black italic px-8 py-3 rounded-tl-xl hover:bg-red-600 hover:text-white transition-colors uppercase tracking-tight">
-         Join the Grid
-       </button>
-       <p class="text-[10px] text-zinc-500 mt-2 font-mono">Server Password in Discord</p>
-    </div>
+
+<section class="relative h-[70vh] flex items-center overflow-hidden rounded-3xl bg-zinc-900 border border-zinc-800">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/60 to-transparent z-10"></div>
+    <div class="w-full h-full bg-zinc-800/50"></div> 
   </div>
 
-  <div class="absolute -right-10 -bottom-10 text-9xl font-black italic text-white/5 pointer-events-none uppercase">
-    {raceData.track.split('-')[0]}
+  <div class="relative z-20 px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div>
+      <div class="flex items-center gap-3 mb-6">
+        <span class="bg-red-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest animate-pulse">
+          Next Event
+        </span>
+        <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest">Season 3 • Round 1</span>
+      </div>
+      
+      <h1 class="text-7xl font-black italic uppercase leading-none mb-4 text-white">
+        {nextRace.track}
+      </h1>
+      <p class="text-xl text-zinc-400 font-medium mb-8 uppercase tracking-tight">{nextRace.location}</p>
+
+      <div id="countdown" class="flex gap-6 mb-10" data-date={nextRace.date}>
+        <div class="text-center">
+          <span class="block text-4xl font-black text-white days">00</span>
+          <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Days</span>
+        </div>
+        <div class="text-center">
+          <span class="block text-4xl font-black text-white hours">00</span>
+          <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Hrs</span>
+        </div>
+        <div class="text-center">
+          <span class="block text-4xl font-black text-red-600 mins">00</span>
+          <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Mins</span>
+        </div>
+      </div>
+
+      <button class="bg-white text-black font-black uppercase px-8 py-4 rounded-full hover:bg-red-600 hover:text-white transition-all transform hover:scale-105 italic tracking-tighter">
+        Join the grid.
+      </button>
+    </div>
+
+    <div class="hidden lg:flex flex-col justify-center border-l border-zinc-800 pl-12">
+      <div class="grid grid-cols-2 gap-8">
+        <div>
+          <span class="text-red-500 text-[10px] font-bold uppercase tracking-widest block mb-1">Race Start</span>
+          <span class="text-2xl font-black italic text-white">{nextRace.startTime}</span>
+        </div>
+        <div>
+          <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest block mb-1">Track Length</span>
+          <span class="text-2xl font-black italic text-white">{nextRace.length}</span>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+</section><br>
+
+<script>
+  // Countdown Logic
+  function initCountdown() {
+    const timer = document.getElementById('countdown');
+    if (!timer) return;
+    
+    const targetDate = new Date(timer.dataset.date).getTime();
+    
+    const update = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      
+      if (distance < 0) {
+        timer.innerHTML = "<span class='text-2xl font-black uppercase italic text-red-600'>Race Session Live</span>";
+        return;
+      }
+
+      timer.querySelector('.days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+      timer.querySelector('.hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+      timer.querySelector('.mins').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+    };
+
+    update();
+    setInterval(update, 1000 * 60); // Update every minute to save resources
+  }
+  
+  initCountdown();
+</script>
