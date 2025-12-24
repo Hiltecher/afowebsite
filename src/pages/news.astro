@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const allNews = await getCollection('news');
+// Sort by date so newest is first
+const sortedNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout title="AFO League | News">
+  <main class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-5xl font-black italic uppercase mb-12">Latest News</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sortedNews.map(post => (
+        <article class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-red-600 transition">
+          <div class="p-6">
+            <p class="text-red-600 text-xs font-bold uppercase mb-2">
+              {post.data.pubDate.toDateString()}
+            </p>
+            <h2 class="text-2xl font-bold mb-3">{post.data.title}</h2>
+            <p class="text-zinc-400 text-sm mb-4 line-clamp-3">{post.data.description}</p>
+            <a href={`/news/${post.slug}`} class="text-white font-bold text-xs uppercase tracking-widest hover:text-red-500">
+              Read More →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+</Layout>

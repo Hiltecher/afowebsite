@@ -1,0 +1,22 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<header class="w-full border-b border-zinc-800 bg-zinc-950">
+  <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+    
+    <div class="flex-grow shrink-0">
+      <a href="/" class="text-2xl font-black italic text-red-600 uppercase tracking-tighter leading-none">
+        Assetto Formula Open
+      </a>
+    </div>
+
+    <nav class="flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-zinc-400">
+      <a href="/" class={currentPath === "" ? "text-white" : "hover:text-white transition"}>Home</a>
+      <a href="/standings" class={currentPath === "standings" ? "text-white" : "hover:text-white transition"}>Standings</a>
+      <a href="/news" class={currentPath === "news" ? "text-white" : "hover:text-white transition"}>News</a>
+    </nav>
+    
+  </div>
+</header>

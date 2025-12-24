@@ -1,22 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 import RaceHero from '../components/RaceHero.astro';
 ---
 
-<Layout title="AFO Racing League | Sim Racing Community">
+<Layout title="AFO | Official Website">
 	<main class="max-w-7xl mx-auto px-4 py-12">
 		
-		<header class="flex justify-between items-end mb-12 border-b border-zinc-800 pb-4">
-			<div>
-				<h1 class="text-2xl font-black italic text-red-600 uppercase tracking-tighter">AFO League</h1>
-			</div>
-			<nav class="hidden md:flex gap-6 text-xs font-bold uppercase tracking-widest text-zinc-400">
-				<a href="/" class="text-white">Home</a>
-				<a href="/standings" class="hover:text-white">Standings</a>
-				<a href="/rules" class="hover:text-white">Rules</a>
-			</nav>
-		</header>
-
 		<RaceHero />
 
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -32,10 +22,19 @@ import RaceHero from '../components/RaceHero.astro';
 					<h3 class="font-black italic uppercase text-sm mb-4 border-b border-zinc-800 pb-2">Quick Standings</h3>
 					<ul class="space-y-3 font-mono text-sm">
 						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
-							<span>1. M. Verstappen</span> <span class="text-red-500 font-bold">125</span>
+							<span>1. J. Wagenvoort</span> <span class="text-red-500 font-bold">96</span>
 						</li>
 						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
-							<span>2. L. Norris</span> <span class="text-red-500 font-bold">112</span>
+							<span>2. A. Rimkunas</span> <span class="text-red-500 font-bold">87</span>
+						</li>
+						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
+							<span>3. P. Prentic</span> <span class="text-red-500 font-bold">69</span>
+						</li>
+						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
+							<span>4. R. Hawk</span> <span class="text-red-500 font-bold">59</span>
+						</li>
+						<li class="flex justify-between border-b border-zinc-800/50 pb-1">
+							<span>5. N. Sparks</span> <span class="text-red-500 font-bold">57</span>
 						</li>
 					</ul>
 					<a href="/standings" class="block text-center mt-4 text-[10px] text-zinc-500 hover:text-white uppercase font-bold tracking-widest">Full Standings →</a>
