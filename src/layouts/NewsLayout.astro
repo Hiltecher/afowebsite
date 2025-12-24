@@ -1,0 +1,39 @@
+---
+import Layout from './Layout.astro';
+const { frontmatter } = Astro.props;
+---
+<Layout title={frontmatter.title}>
+  <main class="max-w-3xl mx-auto px-4 py-20">
+    <header class="mb-12 border-b border-zinc-800 pb-8">
+      <a href="/news" class="text-red-600 font-bold uppercase text-[10px] tracking-widest hover:text-white transition-colors">
+        ← Back to News
+      </a>
+      <h1 class="text-5xl font-black italic uppercase mt-6 mb-4 text-white leading-tight">
+        {frontmatter.title}
+      </h1>
+      <p class="text-zinc-500 font-bold uppercase text-[10px]">
+        {frontmatter.pubDate} • By {frontmatter.author}
+      </p>
+    </header>
+
+    <div class="article-content text-zinc-400 text-lg leading-relaxed">
+      <slot />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* Standard CSS to avoid Tailwind class errors in style tags */
+  .article-content :global(h2) {
+    color: white;
+    font-size: 1.875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .article-content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+</style>

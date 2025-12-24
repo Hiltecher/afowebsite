@@ -4,7 +4,15 @@ import RaceHero from '../components/RaceHero.astro';
 import QuickStandings from '../components/QuickStandings.astro';
 
 // Replace this with your actual YouTube video ID or Twitch channel
-const streamId = "0UeNyW5Pt-w"; 
+const streamId = "0UeNyW5Pt-w";
+
+// Fetch all news files directly from the pages/news folder
+const posts = await Astro.glob('./news/*.md');
+
+// Sort by date (newest first) and grab the top 3
+const latestNews = posts
+  .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf())
+  .slice(0, 3);
 ---
 
 <Layout title="AFO Racing League">
@@ -34,17 +42,29 @@ const streamId = "0UeNyW5Pt-w";
           </div>
         </section>
 
-        <section>
-          <h2 class="text-2xl font-black italic uppercase mb-8 text-white">Latest News</h2>
-          <div class="space-y-6">
-            <div class="bg-zinc-900 p-6 rounded-3xl border border-zinc-800 hover:border-zinc-700 transition-colors">
-              <p class="text-zinc-500 text-xs font-bold uppercase mb-2">Dec 24, 2025</p>
-              <h3 class="text-xl font-bold text-white mb-2">Melbourne GP: Technical Briefing</h3>
-              <p class="text-zinc-400 text-sm mb-4">Everything you need to know about fuel strategy and tire wear for the upcoming round at Albert Park.</p>
-              <a href="/news" class="text-red-600 font-bold uppercase text-xs hover:text-white transition-colors">Read More →</a>
-            </div>
-          </div>
-        </section>
+		<section>
+			<h2 class="text-2xl font-black italic uppercase mb-8 text-white">Latest News</h2>
+			<div class="space-y-6">
+			  {latestNews.length > 0 ? (
+				latestNews.map((post) => (
+				  <div class="bg-zinc-900 p-6 rounded-3xl border border-zinc-800 hover:border-zinc-700 transition-all group">
+					<p class="text-zinc-500 text-xs font-bold uppercase mb-2">
+					  {new Date(post.frontmatter.pubDate).toLocaleDateString()}
+					</p>
+					<h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">
+					  {post.frontmatter.title}
+					</h3>
+					<p class="text-zinc-400 text-sm mb-4">{post.frontmatter.summary}</p>
+					<a href={post.url} class="text-red-600 font-bold uppercase text-xs hover:text-white transition-colors">
+					  Read Full Report →
+					</a>
+				  </div>
+				))
+			  ) : (
+				<p class="text-zinc-500 italic">No news reports found. Start writing in src/pages/news/!</p>
+			  )}
+			</div>
+		  </section>
       </div>
 
       <aside>
