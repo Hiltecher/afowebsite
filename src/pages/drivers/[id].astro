@@ -24,7 +24,7 @@ const { driver } = Astro.props;
         <img 
           src={driver.car} 
           alt="Season 3 Livery" 
-          class="relative z-10 w-full drop-shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500" 
+          class="relative z-10 w-full drop-shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 rounded-[20px]" 
         />
       </div>
 
@@ -57,7 +57,7 @@ const { driver } = Astro.props;
           </div>
         </div>
 
-        <p class="text-xl text-zinc-400 leading-relaxed italic">{driver.bio}</p>
+        <p class="text-xl text-zinc-400 leading-relaxed italic whitespace-pre-line">{driver.bio}</p>
       </div>
     </div>
   </main>
