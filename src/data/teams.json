@@ -5,9 +5,9 @@
       "color": "#595959",
       "logo": "/SRTTILE.png",
       "stats": {
-        "titles": 0,
-        "wins": 0,
-        "podiums": 0
+        "titles": 1,
+        "wins": 4,
+        "podiums": 8
       },
       "bio": "SRT won the most trophies in Season 2, taking home the Constructors, 4 wins and 8 podiums. But with a brand new lineup and manager, can they repeat the same levels of success in Season 3?"
     },
@@ -18,10 +18,10 @@
       "logo": "/SONNYTILE.png",
       "stats": {
         "titles": 0,
-        "wins": 0,
-        "podiums": 0
+        "wins": 4,
+        "podiums": 7
       },
-      "bio": "Sonny GP is a competitor in AFO Season 3."
+      "bio": "Sonny GP came into season 2 looking to be playing catch up. Instead, they won the driver's championship, along with 4 wins and 7 podiums. Now the final objective is in sight - the constructors championship. Can the boys in red pick up the one trophy missing from their cabinet?"
     },
     {
       "id": "kv-group",
@@ -31,9 +31,9 @@
       "stats": {
         "titles": 0,
         "wins": 0,
-        "podiums": 0
+        "podiums": 6
       },
-      "bio": "KV Group is a competitor in AFO Season 3."
+      "bio": "KV Group know that when the door is ajar for opportunities towards the front, they will always be there to capitalise. Having finished as the last of the front runners in Season 2, they'll be doing everything they can to put their cars at the front of the grid by any means necessary."
     },
     {
       "id": "blue-ridge-racing",
@@ -45,7 +45,7 @@
         "wins": 0,
         "podiums": 0
       },
-      "bio": "Blue Ridge Racing is a competitor in AFO Season 3."
+      "bio": "Blue Ridge came into the season as a late entry and quickly hit the ground running, showing to the AFO world that they are a serious threat. Direct rivals to Techteam CHP for the title of Best American Team in AFO, their constructors position of P4 in Season 2 looks humble, until you realise they joined halfway through the season. Questions loom as to how they would have performed with a whole round of testing and a full season - we'll get the answers in Season 3."
     },
     {
       "id": "tygersport",
@@ -55,9 +55,9 @@
       "stats": {
         "titles": 0,
         "wins": 0,
-        "podiums": 0
+        "podiums": 1
       },
-      "bio": "Tygersport is a competitor in AFO Season 3."
+      "bio": "Tygersport are a hallmark name in AFO, yet consistently fall shy of the task to join the frontrunners. Historically, they have constantly been plagued by bad luck, late race collisions and setup troubles. However with strong pace shown in the S3 Pre Season Test Cup, will this season be the outlier they so wish for?"
     },
     {
       "id": "skyclan-sim-esports",
@@ -69,7 +69,7 @@
         "wins": 0,
         "podiums": 0
       },
-      "bio": "SKYCLAN Sim eSports is a competitor in AFO Season 3."
+      "bio": "SKYCLAN boast the biggest academy in AFO, with over 5 drivers in their rankings, proud to wear the Skyclan crest on their chest. They were feared coming into Season 2 but unfortunately were stricken down by many race incidents and collisions. Coming into Season 3, they'll be hoping to mount a challenge towards the front of the midfield."
     },
     {
       "id": "kuiper-darkstar-racing",
@@ -81,7 +81,7 @@
         "wins": 0,
         "podiums": 0
       },
-      "bio": "Kuiper Darkstar Racing is a competitor in AFO Season 3."
+      "bio": "Kuiper Darkstar Racing, a passion project led by the resilient Simon Pavlik, is always in limbo near the back of the field. A string of poor performances from the owner driver and the inability to secure consistent drivers has unfortunately put this team towards the bottom end of the table. However with promising talent Joshi Mandelbaum inking the contract to try and bring the team back into points scoring ways, could this be the start of a new era for KDR?"
     },
     {
       "id": "techteam-chp",
@@ -93,7 +93,7 @@
         "wins": 0,
         "podiums": 0
       },
-      "bio": "Techteam CHP is a competitor in AFO Season 3."
+      "bio": "Techteam CHP is an American hallmark name, boasting a longstanding history in other competitions. Direct rivals to Blue Ridge for the title of Best American Team in AFO, they joined AFO in Season 2 but quickly realised consisteny beats pace. CHP put their eggs into two drivers with extreme inactivity, causing them to finish towards the bottom of the table. Now with some more active drivers, they'll be hoping to beat Blue Ridge and show that they are the dominant American team in AFO."
     },
     {
       "id": "vega-sport-gp",
@@ -105,7 +105,7 @@
         "wins": 0,
         "podiums": 0
       },
-      "bio": "Vega Sport GP is a competitor in AFO Season 3."
+      "bio": "A brand new fledgling team with a lot of love, owner Eliot Vega previously mounted the challenge of running League 2 team Soggelli, until the opportunity for running a League 1 team presented itself. Vega-sport was thus born, and whilst the team was unable to formally attend the S3 Pre Season Test Cup, promising pace in laptime sim suggests they'll be fighting near the front."
     },
     {
       "id": "fox-esports",
@@ -117,7 +117,7 @@
         "wins": 0,
         "podiums": 0
       },
-      "bio": "Fox eSports is a competitor in AFO Season 3."
+      "bio": "Hated, adored, never ignored. Boasting a lineage of outfits across many leading leagues, Fox eSports now play their hand in AFO, with former Sonny GP driver James Knox and F1AC legend Dan Thyn. Whilst there is no indication of how the team will perform going into Australia, one thing is certain: never write off the Foxes until the chequered flag drops."
     },
     {
       "id": "out-for-blood",
@@ -129,6 +129,6 @@
         "wins": 0,
         "podiums": 0
       },
-      "bio": "Out For Blood is a competitor in AFO Season 3."
+      "bio": "As the name suggests, the team is out for blood. The talented but reckless Auge Rimkunas founded the outfit in a bid to claim the driver's championship he lost on the final race of Season 2. While his teammate is uncertain, the paddock knows how much of a threat Auge can be when the factors all come together. Keep an eye out for this dark maroon car."
     }
   ]
