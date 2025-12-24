@@ -1,13 +1,21 @@
 ---
-// Define the next race details
-const nextRace = {
-  track: "Albert Park",
-  location: "Melbourne, Australia",
-  date: "2026-01-10T18:00:00Z", 
-  startTime: "18:00 GMT",
-  length: "5.278 km",
-  image: "albert-park.png" 
-};
+// src/components/RaceHero.astro
+import calendarData from '../data/calendar.json';
+
+// 1. Get the current time
+const now = new Date().getTime();
+
+// 2. Find the first race that hasn't happened yet
+const upcomingRaces = calendarData
+  .filter(race => race.date !== "TBD")
+  .filter(race => new Date(race.date).getTime() > now)
+  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+// Select the first upcoming race, or fallback to the first race if all are finished
+const nextRace = upcomingRaces[0] || calendarData[0];
+
+// Formatting the target date for the countdown script
+const targetDate = nextRace.date; 
 ---
 
 <section class="relative h-[70vh] flex items-center overflow-hidden rounded-3xl bg-zinc-900 border border-zinc-800">
@@ -22,15 +30,17 @@ const nextRace = {
         <span class="bg-red-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest animate-pulse">
           Next Event
         </span>
-        <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest">Season 3 • Round 1</span>
+        <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest">
+          Season 3 • Round {nextRace.round} {nextRace.flag}
+        </span>
       </div>
       
       <h1 class="text-7xl font-black italic uppercase leading-none mb-4 text-white">
         {nextRace.track}
       </h1>
-      <p class="text-xl text-zinc-400 font-medium mb-8 uppercase tracking-tight">{nextRace.location}</p>
+      <p class="text-xl text-zinc-400 font-medium mb-8 uppercase tracking-tight">{nextRace.country}</p>
 
-      <div id="countdown" class="flex gap-6 mb-10" data-date={nextRace.date}>
+      <div id="countdown" class="flex gap-6 mb-10" data-date={targetDate}>
         <div class="text-center">
           <span class="block text-4xl font-black text-white days">00</span>
           <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Days</span>
@@ -40,61 +50,79 @@ const nextRace = {
           <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Hrs</span>
         </div>
         <div class="text-center">
-          <span class="block text-4xl font-black text-red-600 mins">00</span>
+          <span class="block text-4xl font-black text-white mins">00</span>
           <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Mins</span>
+        </div>
+        <div class="text-center">
+          <span class="block text-4xl font-black text-red-600 secs">00</span>
+          <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Secs</span>
         </div>
       </div>
 
-      <a 
-        href="https://discord.gg/5qSnFtQsdq" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="inline-block bg-white text-black font-black uppercase px-8 py-4 rounded-full hover:bg-red-600 hover:text-white transition-all transform hover:scale-105 italic tracking-tighter"
-      >
+      <a href="https://discord.gg/5qSnFtQsdq" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-black font-black uppercase px-8 py-4 rounded-full hover:bg-red-600 hover:text-white transition-all transform hover:scale-105 italic tracking-tighter">
         Join the grid.
       </a>
-
     </div>
 
     <div class="hidden lg:flex flex-col justify-center border-l border-zinc-800 pl-12">
       <div class="grid grid-cols-2 gap-8">
         <div>
-          <span class="text-red-500 text-[10px] font-bold uppercase tracking-widest block mb-1">Race Start</span>
-          <span class="text-2xl font-black italic text-white">{nextRace.startTime}</span>
+          <span class="text-red-500 text-[10px] font-bold uppercase tracking-widest block mb-1">Local Race Date</span>
+          <span class="text-2xl font-black italic text-white">{new Date(nextRace.date).toLocaleDateString()}</span>
         </div>
+        
         <div>
-          <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest block mb-1">Track Length</span>
-          <span class="text-2xl font-black italic text-white">{nextRace.length}</span>
+          <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest block mb-1">Race Start</span>
+          <span class="text-2xl font-black italic text-white uppercase">18:00 GMT</span>
         </div>
       </div>
     </div>
   </div>
-</section><br>
+</section>
 
 <script>
-  // Countdown Logic
   function initCountdown() {
     const timer = document.getElementById('countdown');
     if (!timer) return;
     
-    const targetDate = new Date(timer.dataset.date).getTime();
+    // Safety check for TBD dates
+    if (timer.dataset.date === "TBD") {
+      timer.innerHTML = "<span class='text-2xl font-black uppercase italic text-zinc-500'>Date TBD</span>";
+      return;
+    }
+
+    const targetTime = new Date(timer.dataset.date).getTime();
     
     const update = () => {
       const now = new Date().getTime();
-      const distance = targetDate - now;
+      const distance = targetTime - now;
       
       if (distance < 0) {
         timer.innerHTML = "<span class='text-2xl font-black uppercase italic text-red-600'>Race Session Live</span>";
         return;
       }
 
-      timer.querySelector('.days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-      timer.querySelector('.hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-      timer.querySelector('.mins').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+      // Calculations
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // DOM Updates
+      const daysEl = timer.querySelector('.days');
+      const hoursEl = timer.querySelector('.hours');
+      const minsEl = timer.querySelector('.mins');
+      const secsEl = timer.querySelector('.secs');
+
+      if(daysEl) daysEl.textContent = d.toString().padStart(2, '0');
+      if(hoursEl) hoursEl.textContent = h.toString().padStart(2, '0');
+      if(minsEl) minsEl.textContent = m.toString().padStart(2, '0');
+      if(secsEl) secsEl.textContent = s.toString().padStart(2, '0');
     };
 
     update();
-    setInterval(update, 1000 * 60); // Update every minute to save resources
+    // Refresh every second for the new seconds counter
+    setInterval(update, 1000); 
   }
   
   initCountdown();
