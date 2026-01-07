@@ -3,28 +3,85 @@
 ---
 
 <header class="py-6 border-b border-zinc-800 bg-zinc-950/50 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+    
+    <a href="/" class="flex items-center group relative z-[100]">
+      <img 
+        src="/afologo.png" 
+        alt="ASSETTO FORMULA OPEN" 
+        class="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+      />
+      <span class="sr-only">Assetto Formula Open</span>
+    </a>
+
+    <button 
+      id="menu-toggle" 
+      class="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none relative z-[100]"
+      aria-label="Toggle Menu"
+    >
+      <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center" id="line1"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300" id="line2"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center" id="line3"></span>
+    </button>
+
+    <nav 
+      id="nav-menu" 
+      class="hidden md:flex fixed md:static inset-0 h-screen md:h-auto bg-zinc-950 md:bg-transparent z-[90] flex-col md:flex-row items-center justify-center md:justify-start gap-10 md:gap-8 transition-opacity duration-300"
+    >
+      <a href="/" class="text-2xl md:text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Home</a>
+      <a href="/standings" class="text-2xl md:text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Standings</a>
+      <a href="/teams" class="text-2xl md:text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Teams</a>
+      <a href="/drivers" class="text-2xl md:text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Drivers</a>
+      <a href="/news" class="text-2xl md:text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">News</a>
+      <a href="/calendar" class="text-2xl md:text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Calendar</a>
       
-      <a href="/" class="flex items-center group">
-        <img 
-          src="/afologo.png" 
-          alt="ASSETTO FORMULA OPEN" 
-          class="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
-        />
-        <span class="sr-only">Assetto Formula Open</span>
+      <a 
+        href="https://www.youtube.com/@aforacing" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="bg-red-600 text-white text-lg md:text-[10px] font-black uppercase px-8 py-4 md:px-4 md:py-2 rounded-full tracking-widest hover:bg-white hover:text-black transition-all"
+      >
+        ● LIVE
       </a>
-  
-      <nav class="flex gap-8 items-center">
-        <a href="/" class="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Home</a>
-        <a href="/standings" class="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Standings</a>
-        <a href="/news" class="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">News</a>
-        
-        <a href="/calendar" class="text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Calendar</a>
-      
-        <a href="https://www.youtube.com/@aforacing" target="_blank" class="bg-red-600 text-white text-[10px] font-black uppercase px-4 py-2 rounded-full tracking-widest hover:bg-white hover:text-black transition-all">
-          Watch Live
-        </a>
-      </nav>
-      
-    </div>
-  </header>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const line1 = document.getElementById('line1');
+  const line2 = document.getElementById('line2');
+  const line3 = document.getElementById('line3');
+
+  menuBtn?.addEventListener('click', () => {
+    // Toggle Menu Visibility
+    navMenu?.classList.toggle('hidden');
+    navMenu?.classList.toggle('flex');
+    
+    // Animate Hamburger Lines to 'X'
+    line1?.classList.toggle('rotate-45');
+    line1?.classList.toggle('translate-y-2');
+    line2?.classList.toggle('opacity-0');
+    line3?.classList.toggle('-rotate-45');
+    line3?.classList.toggle('-translate-y-2');
+
+    // Prevent background scrolling when menu is open
+    document.body.classList.toggle('overflow-hidden');
+  });
+
+  // Close menu when a link is clicked (crucial for single-page feel)
+  const navLinks = navMenu?.querySelectorAll('a');
+  navLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 768) {
+        navMenu?.classList.add('hidden');
+        navMenu?.classList.remove('flex');
+        line1?.classList.remove('rotate-45', 'translate-y-2');
+        line2?.classList.remove('opacity-0');
+        line3?.classList.remove('-rotate-45', '-translate-y-2');
+        document.body.classList.remove('overflow-hidden');
+      }
+    });
+  });
+</script>

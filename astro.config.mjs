@@ -1,8 +1,11 @@
+// @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 
+import tailwindcss from '@tailwindcss/vite';
+
+// https://astro.build/config
 export default defineConfig({
-  // CHANGE THIS: Ensure it is your exact Vercel URL
-  site: 'https://afowebsite.vercel.app/', 
-  integrations: [tailwind()],
+  vite: {
+    plugins: [tailwindcss()]
+  }
 });

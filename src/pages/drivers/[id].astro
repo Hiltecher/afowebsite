@@ -1,0 +1,64 @@
+---
+// src/pages/drivers/[id].astro
+import Layout from '../../layouts/Layout.astro';
+import drivers from '../../data/drivers.json';
+
+export function getStaticPaths() {
+  return drivers.map((driver) => ({
+    params: { id: driver.id },
+    props: { driver },
+  }));
+}
+
+const { driver } = Astro.props;
+---
+
+<Layout title={`${driver.name} | AFO Driver Profile`}>
+  <main class="max-w-7xl mx-auto px-4 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      
+      <div class="relative">
+        <span class="absolute -top-20 -left-10 text-[15rem] font-black italic opacity-5 text-white leading-none select-none">
+          {driver.number}
+        </span>
+        <img 
+          src={driver.car} 
+          alt="Season 3 Livery" 
+          class="relative z-10 w-full drop-shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 rounded-[20px]" 
+        />
+      </div>
+
+      <div>
+        <div class="flex items-center gap-4 mb-4">
+          <span class="text-4xl">{driver.flag}</span>
+          <span class="text-zinc-500 font-bold uppercase tracking-widest">{driver.team}</span>
+        </div>
+        
+        <h1 class="text-7xl font-black italic uppercase leading-none mb-8 text-white">
+          {driver.name}
+        </h1>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-12 border-y border-zinc-800 py-8 text-center">
+          <div>
+            <span class="block text-4xl font-black text-yellow-500">{driver.stats.titles}</span>
+            <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Titles</span>
+          </div>
+          <div class="border-l border-zinc-800">
+            <span class="block text-4xl font-black text-white">{driver.stats.wins}</span>
+            <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Wins</span>
+          </div>
+          <div class="border-t md:border-t-0 md:border-l border-zinc-800 pt-4 md:pt-0">
+            <span class="block text-4xl font-black text-white">{driver.stats.podiums}</span>
+            <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Podiums</span>
+          </div>
+          <div class="border-l border-zinc-800 border-t md:border-t-0 pt-4 md:pt-0">
+            <span class="block text-4xl font-black text-red-600">{driver.stats.starts}</span>
+            <span class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Starts</span>
+          </div>
+        </div>
+
+        <p class="text-xl text-zinc-400 leading-relaxed italic whitespace-pre-line">{driver.bio}</p>
+      </div>
+    </div>
+  </main>
+</Layout>
